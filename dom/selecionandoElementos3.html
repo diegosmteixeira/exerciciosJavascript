@@ -31,7 +31,17 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        console.log(document.forms) //traz um HTML Collection de todos os formulários
+        console.log(document.forms[0]) //notação de array -nesse caso traz o primeiro elemento
+        console.log(document.getElementsByName('pesquisa')) //nesse traz um NodeList
+        console.log(document.getElementsByTagName('form')) //traz um HTML Collection
+        console.log(document.pesquisa) // traz o elemento que tenha o nome 'pesquisa'
+        console.log(document.pesquisa.q) //traz o input q dentro do formulario
+        document.pesquisa.q.value = 'Linux' //o input recebe o valor Linux
+        document.pesquisa.hl.value = 'en-us'
+        console.log(document.pesquisa.hl.selectedIndex) //diz qual o índice está selecionado
+
+
     </script>
 </body>
 

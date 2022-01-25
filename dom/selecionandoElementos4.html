@@ -22,7 +22,35 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log  //elemento de uma NodeList
+        
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log() //seleciona o pai do node = div
+        lista.childNodes.log() //traz text por conta dos espaços, tem que tirar os espaços
+
+        const primeiro = lista.firstChild
+        primeiro.log()
+        primeiro.nextSibling.log() //pega o próximo 'irmao' do primeiro elemento (pega o li depois de ul -pois há um espaço textual nas tags)
+
+        const ultimo = lista.lastChild
+        ultimo.log() //text
+        ultimo.previousSibling.log() //pega o <li> Bia
+
+        lista.children.log() //não vem os textos, apenas os filhos como HTMLCollection
+        lista.firstElementChild.log() //traz a primeira tag definida na lista
+        lista.lastElementChild.log()
+        lista.parentNode.previousElementSibling.log() //elemento irmão anterior ao parent da lista (pega a div inicio)
+        lista.parentNode.nextElementSibling.log()
+
+        document.querySelectorAll('div ul li').log() //ideal para pegar de fato o que você quer!
+
     </script>
 </body>
 
