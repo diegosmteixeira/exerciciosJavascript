@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+
+        //mesmo que passe vários objetos, o querySelector retorna apenas o primeiro
+        document.querySelector('#primeiro').classList.add('destaque') //espera um seletor HTML -deve colocar o cerquilha
+
+        //querySelectorAll você passa o seletor e ele retorna um NodeList:
+        const selecionar = seletor =>
+        document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque')) //querySelectorAll retorna um NodeList
+        const deselecionar = seletor => 
+        document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div')
+
+        deselecionar('*') //seleciona todos e remove a classe HTML destaque
+        selecionar('.terceiro.ultimo') //seleciona todos que tenham as classes 'terceiro' e 'ultimo' ao mesmo tempo
+        selecionar(':not(#primeiro)') //todo mundo que não é 'primeiro' vai ser selecionado
+
+        /*
+            O querySelector é suportado em 98% dos brownsers!
+        */
+
+        deselecionar('*')
+        selecionar(':nth-child(1)') //seleciona o primeiro filho de um elemento
+        //selecionou tanto a div com id primeiro (primeiro filho do body), quanto a span de 'terceiro'
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') //seleciona o primeiro elemento do tipo div
+
+        deselecionar('*')
+        selecionar('[wb-attrib]') //seleciona a partir de um atributo -selecionou o span
+
+    </script>
+</body>
+</html>
