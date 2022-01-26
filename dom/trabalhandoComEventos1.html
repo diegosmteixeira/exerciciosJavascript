@@ -9,9 +9,25 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick="navegarEm5s(event)" -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault() //prevenir que o comportamento padrão ocorra
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target //e=evento, target=elemento html que disparou o evento
+                window.location.href = link.href //pega a referência do link (href) e colocando em window.location.href (substituindo o endereço)
+            }, 5000)
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s
+
+        //atributo personalizado (melhor abordagem)
+        //atributo personalizado é completamente ignorado pelo browser:
+        const a = document.querySelector('[espera-um-pouco]') 
+        a.onclick = navegarEm5s
     </script>
 </body>
