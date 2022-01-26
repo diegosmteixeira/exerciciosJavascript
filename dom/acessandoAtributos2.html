@@ -17,7 +17,29 @@
         </ul>
     </div>
     <script>
-        // ...
+        
+        const lista = document.querySelector('div ul[destino="escritório"]') //acessa uma div que dentro dela tem uma ul com o atributo destino e valor escritório
+        const lista2 = document.querySelector('#compras') //acessa a mesma div do comando anterior pelo id
+        console.log('Elemento "ul"......')
+        console.log('childNodes', lista.ChildNodes)
+        console.log('destino', lista.id) //lista.destino o browser não reconhece por ser uma propriedade muito personalizada -undefined
+        console.log('getAttribute', lista.getAttribute('destino')) //essa notação reconhece as propriedades personalizadas
+        console.log('hasAttribute', lista.hasAttribute('destino')) //verifica se o atributo está presente
+        lista.setAttribute('destino', 'empresa') //seleciona o atributo 'destino' e muda o valor para 'empresa' ao invés de 'escritório'
+        lista.setAttribute('status', 'aberto') //adicionou o atributo status (que não existia)
+        lista.removeAttribute('destino') //remove
+        console.log(lista.dataset) //retorna o atributo personalizado data-urgencia="5"
+        //normalmente atributos personalizados são iniciados com o prefixo 'data-'
+        lista.dataset.urgencia = 4 //altera o valor
+        console.log(lista.getAttribute('data-urgencia')) //retorna o valor acessado aatravés da string
+
+        // cuidado
+        const label = document.querySelector('label')
+        console.log(label.for) //não é possível pois o 'for' é palavra reservada da linguagem
+        console.log(label.htmlFor) //jeito correto de acessar
+        console.log(label.getAttribute('for')) //acessa através da string
+
+
     </script>
 </body>
 

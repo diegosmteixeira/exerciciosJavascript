@@ -12,7 +12,21 @@
         Classes
     </div>
     <script>
-        // ...
+        const classes = document.querySelector('div').classList //acessando classes desse elemento div
+        classes.add('destaque') //adiciona a classe destaque na div
+        classes.remove('destaque') //remove
+        classes.toggle('destaque') //(toggle = alternância) -se existir ele remove, se não existir, ele adiciona
+        console.log(classes.contains('destaque')) //verifica se está contida
+        console.log(classes.length) //retorna o tamanho
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        for(let c of classes) {
+            console.log(c)
+        }
+
     </script>
 </body>
 

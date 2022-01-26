@@ -16,7 +16,14 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista2 = document.querySelector('#compras')
+
+        // somente leitura
+        console.log(lista2.attributes) //pega os atributos que existem dentro de uma lista
+        console.log(lista2.attributes[0]) //pega o atributo presente no elemento de índice zero
+        console.log(lista2.attributes.id)
+        console.log(lista2.attributes.destino)
+        console.log(lista2.attributes['data-urgencia'])
     </script>
 </body>
 
