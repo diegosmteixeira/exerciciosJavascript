@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face 
+{
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf')
+}
+
+[wm-flappy]
+{
+    position: relative;
+    border: 5px solid dodgerblue;
+    height: 700px;
+    width: 1200px;
+    margin: 15px;
+    background-color: deepskyblue;
+    overflow: hidden; /*tudo fora da div ficará escondido*/
+}
+
+.passaro 
+{ 
+    position: absolute;
+    width 60px;
+    left: calc(50% - 30px); /*como é alinhado pela esquerda do passaro volta 30px pra ficar exatamente no meio*/
+    bottom: 50%; /*em relação ao 'fundo' (altura) do jogo, ele fica no meio*/
+}
+
+.par-de-barreiras 
+{
+    position: absolute;
+    top: 0; /*alinhada com o topo*/
+    height: 100%; /*ocupar altura inteira*/
+    display: flex; /*dentro do par de barreiras usa o flex-box*/
+    flex-direction: column; /*organiza na vertical*/
+    justify-content: space-between; /*espaço entre as barreiras*/
+}
+
+.barreira
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barreira .borda 
+{
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
+}
+
+.barreira .corpo
+{
+    height: 40px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.progresso 
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: Pixel;
+    font-size: 70px;
+}
