@@ -22,9 +22,9 @@
 .passaro 
 { 
     position: absolute;
-    width 60px;
+    width: 60px;
     left: calc(50% - 30px); /*como é alinhado pela esquerda do passaro volta 30px pra ficar exatamente no meio*/
-    bottom: 50%; /*em relação ao 'fundo' (altura) do jogo, ele fica no meio*/
+    /*bottom: 50%; /*em relação ao 'fundo' (altura) do jogo, ele fica no meio*/
 }
 
 .par-de-barreiras 
@@ -68,4 +68,5 @@
     right: 10px;
     font-family: Pixel;
     font-size: 70px;
+    z-index: 100; /*ponto fica na frente dos canos*/
 }
