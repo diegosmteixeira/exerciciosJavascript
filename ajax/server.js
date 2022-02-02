@@ -5,7 +5,7 @@ const app = express()
 //middleware = funções executadas sempre que uma requisição chegar
 app.use(express.static('.')) //serve os arquivos estáticos de dentro pasta
 app.use(bodyParser.urlencoded({ extended: true })) //Lê dados e transforma em um objeto
-app.use(bodyParser.json()) //código que transforma o json é um objeto
+app.use(bodyParser.json()) //código que transforma o json em um objeto
 
 const multer = require('multer') //interpretar o formulário que veio do arquivo upload
 
@@ -28,6 +28,13 @@ app.post('/upload', (req, res) => {
         }
 
         res.end('Concluído com sucesso.')
+    })
+})
+
+app.post('/formulario', (req, res) => {
+    res.send({
+        ...req.body, //bodyparser deve estar configurado para ler o que veio no body
+        id: 1
     })
 })
 
