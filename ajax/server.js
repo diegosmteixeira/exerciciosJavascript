@@ -38,4 +38,15 @@ app.post('/formulario', (req, res) => {
     })
 })
 
+app.get('/parOuImpar', (req, res) => {
+    //dentro do express() existe algumas formas de você receber dados do FrontEnd
+    // req.body
+    // req.query -> /parOuImpar?numero=1   (parametros de uma requisição do tipo GET)
+    // req.params -> /parOuImpar/:numero   (parametros diretamente interpretados na url pelo node)
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
+
 app.listen(8080, () => console.log('Executando servidor...'))

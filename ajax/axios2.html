@@ -14,6 +14,24 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados) {
+            const texto = JSON.stringify(dados) //converte objeto em json para string
+            document.getElementById(id).innerHTML = texto
+        }
+        //Requisição por Params:
+        // axios('parOuImpar?numero=7').then(resp => exibirResultado('get', resp.data))
+        
+        //Requisição por queryString
+        axios.get('parOuImpar', {
+            params: {
+                numero: 6
+            }
+        }).then(resp => exibirResultado('get', resp.data))
+
+        //Metodo POST: exemplo sem formulário, passando os dados dentro de um objeto opções
+        axios.post('formulario', {
+            nome: 'João',
+            sobrenome: 'Silva'
+        }).then(resp => exibirResultado('post', resp.data))
     </script>
 </body>
